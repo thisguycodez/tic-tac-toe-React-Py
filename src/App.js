@@ -7,7 +7,7 @@ import Board from './Board'
 import {connect} from 'react-redux'
 import {newUser,saveGame} from './redux/actions'
 import pcp from './util/imgs/pc.png'
-
+import {Route} from 'react-router-dom'
 
 class App extends React.Component{
   constructor(props){
@@ -64,6 +64,8 @@ componentDidUpdate(){
     <div className="App">
     <Header/>
     <Container className='game'>
+    <Route >
+
      <div className="cards">
      <small className='pcMsg'>PC is {this.props.isPcTurn?'thinking':'waiting'}<br/>
      <div className="container dots">
@@ -88,6 +90,7 @@ componentDidUpdate(){
     </div>
   </div>
 </div>
+      </Route>
     </Container>
       </div>
   );
