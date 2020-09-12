@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.5e92efd5.chunk.css",
-    "main.js": "/static/js/main.cda9da0a.chunk.js",
-    "main.js.map": "/static/js/main.cda9da0a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.02030f09.js",
-    "runtime-main.js.map": "/static/js/runtime-main.02030f09.js.map",
-    "static/css/2.d9ad5f5c.chunk.css": "/static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.d4ec75ee.chunk.js": "/static/js/2.d4ec75ee.chunk.js",
-    "static/js/2.d4ec75ee.chunk.js.map": "/static/js/2.d4ec75ee.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.588d9532a063c9eb6abd4e8ef8c84f88.js": "/precache-manifest.588d9532a063c9eb6abd4e8ef8c84f88.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.d9ad5f5c.chunk.css.map": "/static/css/2.d9ad5f5c.chunk.css.map",
-    "static/css/main.5e92efd5.chunk.css.map": "/static/css/main.5e92efd5.chunk.css.map",
-    "static/js/2.d4ec75ee.chunk.js.LICENSE.txt": "/static/js/2.d4ec75ee.chunk.js.LICENSE.txt",
-    "static/media/1.png": "/static/media/1.cd0f9188.png",
-    "static/media/tttBlock.scss": "/static/media/bg.6f9ebf4d.jpg",
-    "static/media/pc.png": "/static/media/pc.57d52046.png"
+    "main.css": "/tic-tac-toe-React-Py/static/css/main.7829a118.chunk.css",
+    "main.js": "/tic-tac-toe-React-Py/static/js/main.e62687d6.chunk.js",
+    "main.js.map": "/tic-tac-toe-React-Py/static/js/main.e62687d6.chunk.js.map",
+    "runtime-main.js": "/tic-tac-toe-React-Py/static/js/runtime-main.7fd294c5.js",
+    "runtime-main.js.map": "/tic-tac-toe-React-Py/static/js/runtime-main.7fd294c5.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/tic-tac-toe-React-Py/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.105a61a9.chunk.js": "/tic-tac-toe-React-Py/static/js/2.105a61a9.chunk.js",
+    "static/js/2.105a61a9.chunk.js.map": "/tic-tac-toe-React-Py/static/js/2.105a61a9.chunk.js.map",
+    "index.html": "/tic-tac-toe-React-Py/index.html",
+    "precache-manifest.0f005b349874093771a0c4fad7b1120e.js": "/tic-tac-toe-React-Py/precache-manifest.0f005b349874093771a0c4fad7b1120e.js",
+    "service-worker.js": "/tic-tac-toe-React-Py/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/tic-tac-toe-React-Py/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.7829a118.chunk.css.map": "/tic-tac-toe-React-Py/static/css/main.7829a118.chunk.css.map",
+    "static/js/2.105a61a9.chunk.js.LICENSE.txt": "/tic-tac-toe-React-Py/static/js/2.105a61a9.chunk.js.LICENSE.txt",
+    "static/media/1.png": "/tic-tac-toe-React-Py/static/media/1.cd0f9188.png",
+    "static/media/tttBlock.scss": "/tic-tac-toe-React-Py/static/media/bg.6f9ebf4d.jpg",
+    "static/media/pc.png": "/tic-tac-toe-React-Py/static/media/pc.57d52046.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.02030f09.js",
+    "static/js/runtime-main.7fd294c5.js",
     "static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.d4ec75ee.chunk.js",
-    "static/css/main.5e92efd5.chunk.css",
-    "static/js/main.cda9da0a.chunk.js"
+    "static/js/2.105a61a9.chunk.js",
+    "static/css/main.7829a118.chunk.css",
+    "static/js/main.e62687d6.chunk.js"
   ]
 }
