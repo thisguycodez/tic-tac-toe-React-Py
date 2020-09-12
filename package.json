@@ -22,7 +22,7 @@
     "uuid-random": "^1.3.2"
   },
   "proxy": "http://localhost:3001/",
-  "homepage": "/",
+  "homepage": "https://thisguycodez.github.io/tic-tac-toe-React-Py/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
