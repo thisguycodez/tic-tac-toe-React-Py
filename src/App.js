@@ -63,7 +63,7 @@ componentDidUpdate(){
   return (
     <div className="App">
     <Header/>
-    <Container className='game'>
+    <Container className='game container-fluid'>
      <div className="cards">
      <small className='pcMsg'>PC is {this.props.isPcTurn?'thinking':'waiting'}<br/>
      <div className="container dots">

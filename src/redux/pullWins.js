@@ -1,4 +1,4 @@
-export default function(player){
+function ex(player){
 
 	return new Promise((good,bad)=>{
 
@@ -62,3 +62,7 @@ else{//if there is no winning spots
 
 
 })}
+
+
+
+	export default ex

@@ -28,6 +28,7 @@ h3 {
   transform-style: preserve-3d;
   transform: rotateX(11deg) rotateY(16.5deg);
   min-width: 595px;
+  max-width: 600px;
    background:url('../../imgs/bg.jpg');
   background-image:url('../../imgs/bg.jpg');
   -moz-background:cover;
@@ -264,8 +265,8 @@ h3 {
   padding: 30px 35px;
   text-align: left;
   min-width: 100%;
+  max-width: 600px;
   width: 100%;
-  max-width: 100%;
   background:cover;
   background-size:100%;
   background-position:center;
@@ -301,7 +302,7 @@ h3 {
   text-align: left;
   min-width: 100%;
   width: 100%;
-  max-width: 100%;
+  max-width: 600px;
   background:cover;
   background-size:100%;
   background-position:center;
@@ -340,6 +341,7 @@ h3 {
   min-width: 80%;
   width: 80%;
   max-width: 80%;
+  max-width: 600px;
   background:cover;
   background-size:100%;
   background-position:center;
