@@ -37,6 +37,11 @@ export const newUser = () => dispatch =>{
 			//send 'new user' to the application state
 			return dispatch({type:NEWUSER,payload:res.data})
 		})
+		.catch(err=>{
+
+// stop
+return false
+		})
 	}
 	
 }
@@ -57,9 +62,14 @@ export const changeIcon = () => dispatch =>{
 			window.sessionStorage.setItem('losses',`${res.data.losses}`)
 			window.sessionStorage.setItem('winStreak',`${res.data.winStreak}`)
 			
-				console.log(res.data)
 			res.data.game = res.data.currentGame.split(',')
 				return dispatch({type:NEWUSER,payload:res.data})
+			})
+
+			.catch(err=>{
+
+// stop
+return false
 			})
 		}else{
 			alert('You are not using a rostered account, please refresh your page or click "Fresh Game".')
@@ -91,9 +101,15 @@ symbol :window.sessionStorage.symbol
 			window.sessionStorage.setItem('winStreak',`${res.data.winStreak}`)
 			
 			
-				console.log(res.data)
 				res.data.game = res.data.currentGame.split(',')
 				return dispatch({type:NEWUSER,payload:res.data})
+			})
+
+
+			.catch(err=>{
+
+// stop
+return false
 			})
 }
 
@@ -131,13 +147,13 @@ clear board,check who the winner is, and update users status(api)
 ################################################################################################################################
 ################################################################################################################################
 */
+// SAVING EVERYTHING IN SESSION STORAGE
 export const pcTurn = () => dispatch =>{
 	//get board and the pc symbol
  let board = window.sessionStorage.currentGame.split(',')
  let symbol = JSON.parse(window.sessionStorage.symbol)?'false':'true'
 return getSpots(board,symbol).then(async res=>{//grabbing spots that are open and taken from pc
 
-	console.log('back from getSpots()',res)
 
 
 		return bestSpot(res).then(async res_=>{//the next best spot to choose for pc
@@ -192,7 +208,8 @@ return winnersOrBoardStatus(obj).then(async res_=>{
 
 })
 .catch(err=>{
-console.log('error on winner or board function',err)
+// stop
+return false
 })
 })
 		}else{
@@ -204,21 +221,16 @@ console.log('error on winner or board function',err)
 
 	})
 	.catch(err=>{//error on choosing a spot(either its taken or board is full)
-		console.log('back from an err on makeMoves ',err)
 		if(err.bool){
-		console.log('back from an err on makeMoves in bool ',err)
 		//separate the spots on the board
 return getSeparateSpots().then(res=>{
-console.log('get seperate function',res)
 
 const obj = res
 //checking for winners by passing in each
 // users spots taken or if board is full
 //then clear it
 return winnersOrBoardStatus(obj).then(res_=>{
-console.log('winners or board staus function',res_)
 return showWinner(res_).then(done=>{
-console.log('winner bool',done)
 		 done.img = window.sessionStorage.icon
 		if(done.bool){
 		 dispatch({type:SOMEONEWONGAME,payload:done})
@@ -242,7 +254,8 @@ console.log('winner bool',done)
 		})
 })
 .catch(err=>{
-console.log('error on winner or board function',err)
+// stop
+return false
 })
 })
 		}else{
@@ -303,7 +316,6 @@ console.log('error on winner or board function',err)
 export const spotChoice = (i) => dispatch =>{
 
 	//spot chosen from user is 'i' in this case
-	console.log(i)
 	//clients symbol
  let symbol = window.sessionStorage.symbol
 
@@ -317,7 +329,6 @@ if(JSON.parse(window.sessionStorage.pcTurn)){//is it pc's turn to go?
 	}//pc's turn
 	else{//clients turn
 			return makeMove(i,symbol).then(async res__=>{
-				console.log('back from makeMove()',res__)
 		dispatch({type:CHOICE,payload:window.sessionStorage.currentGame.split(',')})
 			
 //separate the spots on the board
@@ -353,17 +364,16 @@ return winnersOrBoardStatus(obj).then(async res_=>{
 
 })
 .catch(err=>{
-console.log('error on winner or board function',err)
+// stop
+return false
 })
 })
 			})
 
 			.catch(err=>{
-				console.log('back from an err on makeMoves ',err)
 				if(!/null/.test(window.sessionStorage.currentGame)){
 					return clearBoard().then(cleared=>{
 	window.sessionStorage.setItem('pcTurn','true')
-		console.log('back from an err on makeMove in clearBoard()',cleared)
 				 dispatch({type:CHOICE,payload:window.sessionStorage.currentGame.split(',')})
 			})
 				}
@@ -407,16 +417,15 @@ return showWinner(res_).then(done=>{
 
 })
 .catch(err=>{
-console.log('error on winner or board function',err)
+// stop
+return false
 })
 })	
 
 			})
 			.catch(err=>{
-				console.log('back from an err on makeMoves ',err)
 				 return clearBoard().then(cleared=>{
 	window.sessionStorage.setItem('pcTurn','true')
-		console.log('back from an err on makeMove in clearBoard()',cleared)
 				 dispatch({type:CHOICE,payload:window.sessionStorage.currentGame.split(',')})
 			})
 			})

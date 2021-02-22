@@ -1,9 +1,11 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle,Spinner } from 'reactstrap';
 // import antman from './util/imgs/1.png'
 import {connect} from 'react-redux'
 import {newUser,changeIcon} from './redux/actions'
+import BabySpin from './b-spin.js'
+
 
 class Header extends React.Component{
   constructor(props){
@@ -25,17 +27,17 @@ render(){
         {this.state.dropdownOpen?<i className="far fa-folder-open"></i>:<i className="far fa-folder"></i>}
   </DropdownToggle>
   <DropdownMenu  style={{backgroundColor:'rgba(0,0,0,1)'}} right>
-    <DropdownItem header>User Status</DropdownItem>
+    <DropdownItem header>{this.props.userID?'User Account':'Creating Temporary Account '}</DropdownItem>
 
-    <DropdownItem disabled><small>ICON: <code><img className="card__img" width='20' height='20' src={this.props.icon} alt='users icon'/></code></small></DropdownItem>
-    <DropdownItem disabled><small>ID: <code>{this.props.userID}</code></small></DropdownItem>
-    <DropdownItem disabled><small>WINS: <code>{this.props.wins}</code></small></DropdownItem>
-    <DropdownItem disabled><small>LOSSES: <code>{this.props.losses}</code></small></DropdownItem>
-    <DropdownItem disabled><small>WINNING STREAK: <code>{this.props.winStreak}</code></small></DropdownItem>
+    <DropdownItem disabled><small>ICON: <code>{this.props.userID?<img className="card__img" width='20' height='20' src={this.props.icon} alt='users icon'/>:<BabySpin/>}</code></small></DropdownItem>
+    <DropdownItem disabled><small>ID: <code>{this.props.userID?this.props.userID:<Spinner size='sm' color='info'/>}</code></small></DropdownItem>
+    <DropdownItem disabled><small>WINS: <code>{this.props.userID?this.props.wins:<Spinner size='sm' color='info'/>}</code></small></DropdownItem>
+    <DropdownItem disabled><small>LOSSES: <code>{this.props.userID?this.props.losses:<Spinner size='sm' color='info'/>}</code></small></DropdownItem>
+    <DropdownItem disabled><small>WINNING STREAK: <code>{this.props.userID?this.props.winStreak:<Spinner size='sm' color='info'/>}</code></small></DropdownItem>
     <DropdownItem divider/>
 
-    <DropdownItem onClick={()=>{window.sessionStorage.clear();return this.props.newUser()}}>Fresh Start</DropdownItem>
-    <DropdownItem><a href='https://guytonoriji.site/'>quit/leave</a></DropdownItem>
+    <DropdownItem style={{background:'#000'}} onClick={()=>{window.sessionStorage.clear();return this.props.newUser()}}>Fresh Start</DropdownItem>
+    <DropdownItem style={{background:'#000'}}><a href='thisguycodez.com'>quit/leave</a></DropdownItem>
   </DropdownMenu>
 </Dropdown>
 

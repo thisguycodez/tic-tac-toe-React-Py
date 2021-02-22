@@ -2,7 +2,7 @@ import React from 'react';
 import './util/styles/css/App.css';
 import './util/styles/sass/tttBlock.scss';
 import Header from './Header'
-import {Container} from 'reactstrap';
+import {Container,Spinner} from 'reactstrap';
 import Board from './Board'
 import {connect} from 'react-redux'
 import {newUser,saveGame} from './redux/actions'
@@ -39,7 +39,7 @@ document.addEventListener('mousemove', ({ x, y }) => {
     const yValue = calcValue(y, window.innerHeight);
     const xValue = calcValue(x, window.innerWidth);
 
-    cards.style.transform = `rotateX(${yValue}deg) rotateY(${xValue}deg)`;
+    if(cards){cards.style.transform = `rotateX(${yValue}deg) rotateY(${xValue}deg)`};
 
     [].forEach.call(images, image => {
       image.style.transform = `translateX(${-xValue}px) translateY(${yValue}px)`;
@@ -63,32 +63,35 @@ componentDidUpdate(){
   return (
     <div className="App">
     <Header/>
-    <Container className='game container-fluid'>
-     <div className="cards">
-     <small className='pcMsg'>PC is {this.props.isPcTurn?'thinking':'waiting'}<br/>
-     <div className="container dots">
-     <img src={pcp} width='20' height='20' alt='pc player'/>
-     {!this.props.isPcTurn?'':(<div>
-       <div className="yellow"></div>
-       <div className="red"></div>
-       <div className="blue"></div>
-       <div className="violet"></div>
-       </div>)}
-</div></small>
-  <h3>User-ID : <small>{this.props.userID}</small></h3>
-  <nav className=' score'>
-  <small><code>wins: {this.props.wins}</code></small><br/>
-  <small><code>losses: {this.props.losses}</code></small>
-  </nav>
-  <div className="card card__one">
-    <div className="card__bg"></div>
-    <img className="card__img" src={this.props.icon} alt='Users icon'/>
-    <div className="card__content">
-      <Board/>
-    </div>
-  </div>
-</div>
-    </Container>
+    {this.props.userID?(<Container className='game'>
+             <div className="cards">
+             <small className='pcMsg'>PC is {this.props.isPcTurn?'thinking':'waiting'}<br/>
+             <div className="container dots">
+             <img src={pcp} width='20' height='20' alt='pc player'/>
+             {!this.props.isPcTurn?'':(<div>
+               <div className="yellow"></div>
+               <div className="red"></div>
+               <div className="blue"></div>
+               <div className="violet"></div>
+               </div>)}
+        </div></small>
+         <code>User-ID:<br/><small>{this.props.userID}</small></code>
+          <nav className=' score'>
+          <small><code>wins: {this.props.wins}</code></small><br/>
+          <small><code>losses: {this.props.losses}</code></small>
+          </nav>
+          <div className="card card__one">
+            <div className="card__bg"></div>
+            <img className="card__img" src={this.props.icon} alt='Users icon'/>
+            <div className="card__content">
+              <Board/>
+            </div>
+          </div>
+        </div>
+            </Container>):
+
+    (<div><h1>Please Wait, Fetching temporary account</h1><br/> <Spinner color="danger" style={{fontWeight:'bolder' ,width: '10rem', height: '10rem' }}/></div>)
+  }
       </div>
   );
   }

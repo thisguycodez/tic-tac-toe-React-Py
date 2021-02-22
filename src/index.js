@@ -6,7 +6,6 @@ import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 
-import {BrowserRouter as Router} from 'react-router-dom'
 
 
 import {createStore,applyMiddleware } from 'redux'
@@ -19,13 +18,11 @@ dotenv.config()
 const store = createStore(reducer,applyMiddleware(thunk))
 
 ReactDOM.render(
-	<Router>
-	<Provider store={store}>
   <React.StrictMode>
+	<Provider store={store}>
     <App />
-  </React.StrictMode>
 	</Provider>
-  </Router>
+  </React.StrictMode>
   ,
   document.getElementById('root')
 );
